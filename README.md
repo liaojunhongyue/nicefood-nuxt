@@ -1,6 +1,6 @@
-# nicefoodnuxt
+# nuxt框架搭建webapp项目-支持服务端渲染
 
-## Build Setup
+## 项目启动
 
 ```bash
 # install dependencies
@@ -18,3 +18,6 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+
+## 项目介绍
+## 详细说明

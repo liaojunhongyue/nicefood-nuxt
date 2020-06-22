@@ -31,6 +31,22 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
+    {
+      src: '~/plugins/vant.js',
+      ssr: true
+    },
+    {
+      src: '~/plugins/mock.js',
+      ssr: true
+    },
+    {
+      src: '~/plugins/api.js',
+      ssr: true
+    },
+    {
+      src: '~/plugins/http.js',
+      ssr: true
+    }
   ],
   /*
   ** Nuxt.js dev-modules
@@ -46,7 +62,7 @@ export default {
   styleResources: {
     less: [
       './assets/less/variable.less',
-      './assets/less/mixin.less',
+      './assets/less/mixin.less'
     ]
   },
   /*
@@ -54,5 +70,21 @@ export default {
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
+    /*
+    ** Run ESLint on save
+    */
+    extend(config, { isDev, isClient }) {
+      if (isDev && isClient) {
+        config.module.rules.push({
+          enforce: 'pre',
+          test: /\.(js|vue)$/,
+          loader: 'eslint-loader',
+          exclude: /(node_modules)/,
+          options: {
+            fix: true
+          }
+        })
+      }
+    }
   }
 }
